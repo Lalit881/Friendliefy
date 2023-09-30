@@ -1,17 +1,27 @@
-    const togglePassword = document.querySelector("#togglePassword");
-    const password = document.querySelector("#password");
+// for hide and show password
 
-    togglePassword.addEventListener("click", function () {
-        
-        const type = password.getAttribute("type") === "password" ? "text" : "password";
-        password.setAttribute("type", type);
-        
-        // toggle the icon
-        this.classList.toggle("bi-eye");
-    });
+document.getElementById('togglePassword').addEventListener('click', function() {
+    var passwordInput = document.getElementById('password');
+    var icon = this;
 
-    // prevent form submit
-    const form = document.querySelector("form");
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-    });
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+});
+
+ // prevent form submit
+const form = document.querySelector("form");
+form.addEventListener('submit', function (e) {
+e.preventDefault();
+});
+
+// for new page open on submit
+function cominSoon(){
+window.location.href = 'comingsoonpage.html';
+}
